@@ -105,3 +105,4 @@ dist
 
 .rest
 .vscode/
+.http
