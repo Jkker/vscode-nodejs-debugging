@@ -1,10 +1,12 @@
 import express from "express";
 import { promises as fs } from "fs";
 
+// Load Data
 const posts = await fs.readFile("./data/post.json").then(JSON.parse);
 
 const app = express();
 
+// Routes
 app.get("/", (req, res) => {
   res.send("Up and running!");
 });
@@ -21,7 +23,7 @@ app.get("/posts", (req, res) => {
   res.json(filteredPosts);
 });
 
-const PORT = process.env.PORT || 3000;
-
-await app.listen(PORT);
+// Start Server
+const PORT = process.env.PORT ?? process.argv[2] ?? 3000;
+app.listen(PORT);
 console.log(`Server running on port ${PORT}`);
