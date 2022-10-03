@@ -1,7 +1,7 @@
 import express from "express";
 import { promises as fs } from "fs";
 
-const posts = await fs.readFile("./data.json").then(JSON.parse);
+const posts = await fs.readFile("./data/post.json").then(JSON.parse);
 
 const app = express();
 
